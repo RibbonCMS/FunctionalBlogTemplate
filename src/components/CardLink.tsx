@@ -23,7 +23,7 @@ export const CardLink = ({ url }: { url: string }) => {
   const url_domain = metadata[url]['url_domain']
   const url_domain_link = metadata[url]['url_domain_link']
   const title = metadata[url]['title']
-  if (title === undefined) {
+  if (title == undefined) { // 無い場合を考慮して "===" ではなく "==" にしている
     return (
       <Link href={url} target="_blank" rel="noopener">
         {url}
@@ -31,7 +31,7 @@ export const CardLink = ({ url }: { url: string }) => {
     )
   }
   let description = metadata[url]['description']
-  if (description === undefined) {
+  if (description == undefined) { // 無い場合を考慮して "===" ではなく "==" にしている
     description = ''
   }
   const description_max_length = 100
@@ -41,7 +41,7 @@ export const CardLink = ({ url }: { url: string }) => {
 
   const image = `${rootPath}${metadata[url]['image_url']}`
   let image_component = <div />
-  if (image === undefined) {
+  if (image == undefined) { // 無い場合を考慮して "===" ではなく "==" にしている
     image_component = <div />
   } else {
     image_component = (
